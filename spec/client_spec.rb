@@ -1,6 +1,6 @@
-require 'client'
+require 'customer'
 
-describe Client do
+describe Customer do
   it 'should have a name' do
   end
 

@@ -30,6 +30,7 @@ has_price            |  -
 ##Menu
     Responsibility   |  Collaborators
 ---------------------|-------------------
+add new dish         |  Dish
 dishes list          |  Dish
 Count dishes         |   -               
 
@@ -55,6 +56,21 @@ has_name             |  -
 has_menus            |  -
 has_list_of_orders   |  -
 confirm order        |  - 
-(add dish)           |  -
 
+
+
+<!-- 
+Another option was to have a list of hashes for the dish:
+  # def create_dish(name, price)
+  #   dish = {}
+  #   dish[:name] = name
+  #   dish[:price] = price
+  #   @dishes << dish
+  # end
+
+
+# @dishes = [dish.name,dish.value,..] => class
+# @dishes = [{:name => "dish1", :price => 20},{:name => "dish1", :price => 20}...] => no f class
+# dishes = { {:name => dish1}, {":name" => dish2}} 
+-->
                
