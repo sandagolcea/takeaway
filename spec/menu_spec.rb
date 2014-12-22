@@ -18,19 +18,34 @@ describe Menu do
     expect(menu.dishes.size).to eq 1
   end
 
-  it 'should be able to remove dishes' do
+  it 'should be able to remove dishes by name' do
     menu.add(dish)
     menu.add(dish_two)
     expect(menu.dishes.size).to eq 2
     # menu.remove(dish_two)
-    menu.remove("Lasagna")
+    menu.remove_by_name("Lasagna")
     expect(menu.dishes.size).to eq 1
   end
 
-  it 'should know if it has a dish or not' do
+  it 'should be able to remove dishes by passing a dish object' do
+    menu.add(dish)
+    menu.add(dish_two)
+    expect(menu.dishes.size).to eq 2
+    # menu.remove(dish_two)
+    menu.remove(dish_two)
+    expect(menu.dishes.size).to eq 1
+  end
+
+  it 'should know if it has a dish' do
     menu.add(dish)
     menu.add(dish_two)
     expect(menu.find?("Sushi")).to eq true
+  end
+
+  it 'should know if it does not have a dish' do
+    menu.add(dish)
+    menu.add(dish_two)
+    expect(menu.find?("Coq au vin")).to eq false
   end
 
 end
