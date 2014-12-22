@@ -55,5 +55,6 @@ has_name             |  -
 has_menus            |  -
 has_list_of_orders   |  -
 confirm order        |  - 
+(add dish)           |  -
 
                

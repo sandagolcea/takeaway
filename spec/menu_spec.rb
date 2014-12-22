@@ -5,6 +5,12 @@ describe Menu do
   it 'should have a name' do
   end
 
+  it 'should not have any dish by default' do
+  end
+
+  it 'should accept new dishes' do
+  end
+
   it 'should have a list of dishes' do
   end
 
