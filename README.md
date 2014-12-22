@@ -37,6 +37,7 @@ Count dishes         |   -
     Responsibility   |  Collaborators
 ---------------------|-------------------
 has_name             |  -
+has_email            |  - 
 place order          | Order, Dish
 pay for order        | Order, Dish
 (cancel order)       | (Order, Dish)
