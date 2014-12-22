@@ -32,5 +32,22 @@ Count dishes         |   -
 has_name             |  -
 has_price            |  -
 
-Possibly: Order class, Customer class
+##Customer
+    Responsibility   |  Collaborators
+---------------------|-------------------
+has_name             |  -
+
+##Order
+    Responsibility   |  Collaborators
+---------------------|-------------------
+has_name             |  -
+is_payed?            |  -
+
+##Restaurant
+    Responsibility   |  Collaborators
+---------------------|-------------------
+has_name             |  -
+has_menus            |  -
+has_orders           |  -
+
                
