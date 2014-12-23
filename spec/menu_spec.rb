@@ -21,8 +21,8 @@ describe Menu do
   it 'should be able to remove dishes by name' do
     menu.add(dish)
     menu.add(dish_two)
-    expect(menu.dishes.size).to eq 2
-    # menu.remove(dish_two)
+    # expect(menu.dishes.size).to eq 2
+  
     menu.remove_by_name("Lasagna")
     expect(menu.dishes.size).to eq 1
   end
@@ -30,8 +30,8 @@ describe Menu do
   it 'should be able to remove dishes by passing a dish object' do
     menu.add(dish)
     menu.add(dish_two)
-    expect(menu.dishes.size).to eq 2
-    # menu.remove(dish_two)
+    # expect(menu.dishes.size).to eq 2
+  
     menu.remove(dish_two)
     expect(menu.dishes.size).to eq 1
   end
