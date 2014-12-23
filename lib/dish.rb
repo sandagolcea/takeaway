@@ -12,6 +12,6 @@ class Dish
     name ? @name = name : @name = self.name
     price ? @price = price : @price = self.price
   end
-  
+
 # TODO: every dish should be a hash with name && price
 end

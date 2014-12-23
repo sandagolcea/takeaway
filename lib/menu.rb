@@ -24,4 +24,8 @@ class Menu
     @dishes.any? { |d| d.name == dish_name }
   end
 
+  def get_by(dish_name)
+    @dishes.select { |d| d.name == dish_name }.first
+  end
+
 end
