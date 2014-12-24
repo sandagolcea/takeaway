@@ -2,7 +2,7 @@ class Order
 
   def initialize
    @payed = false
-   # @order_dishes = []
+   @customer_order = []
   end
 
   def payed?
@@ -22,12 +22,23 @@ class Order
       # if menu.find?(dish_name) order.add(dish)
   # end
 
+  def add(dish_name, menu)
+    ( curr_dish = menu.get_by(dish_name) ) != nil ? ( @customer_order << curr_dish ) : (p "we don't have that dish!")
+  end
+
+  def total
+    @customer_order.inject(0) {|memo,dish| memo + dish.price } 
+  end
   # def place_order(order_dishes,total)
   # end
 
   # def valid?
 
   # end
+
+  def show
+    @customer_order.each {|dish| puts dish.name}
+  end
 
 end
 

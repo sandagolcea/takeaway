@@ -2,6 +2,7 @@ require 'csv'
 require './lib/menu'
 require './lib/dish'
 require './lib/customer'
+require './lib/order'
 
 def create_menu
   @menu = Menu.new "Main Menu"
@@ -14,30 +15,26 @@ def create_menu
 end
 
 def show_menu
-  @menu.dishes.each {|dish| p dish.name}
+  @menu.dishes.each {|dish| puts dish.name}
 end
 
 def take_order
-  @customer_order = []
-  customer = Customer.new "Customer"
-  
-  add_dish = true
-  while(add_dish) do
-    
-    puts "What dish would you like?"
-    dish_name = gets.chomp
-    ( curr_dish = @menu.get_by(dish_name) ) != nil ? ( @customer_order << curr_dish ) : (p "we don't have that dish!")
-    
+    @order = Order.new
+    add_dish = true
+    while(add_dish) do
+      
+      puts "What dish would you like?"
+      dish_name = gets.chomp
+      
+      @order.add(dish_name, @menu)
 
-    print "Add another dish? (y/n) : "
-    (gets.chomp == "y" ) ? add_dish = true : add_dish = false
-  end
-  total = @customer_order.inject(0) {|memo,dish| memo + dish.price } 
-  p total
+      print "Add another dish? (y/n) : "
+      (gets.chomp == "y" ) ? add_dish = true : add_dish = false
+    end
 end
 
 def show_order
-  @customer_order.each {|dish| p dish.name}
+  @order.show
 end
 
 create_menu
