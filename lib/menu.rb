@@ -32,13 +32,10 @@ class Menu
     CSV.foreach(filename) do |line|
       dish = Dish.new(line[0], line[1].to_i)
       add(dish)
-  end
+    end
 
-  def show_menu
-    @dishes.map {|dish| dish.name}
   end
 
 end
 
 
-end

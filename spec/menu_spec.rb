@@ -66,10 +66,4 @@ describe Menu do
     expect(menu.exists?("Ciabatta")).to eq true
   end
 
-  it 'should print the menu' do
-    menu.add(dish)
-    menu.add(dish_two)
-    expect(menu.show_menu).to eq ["Lasagna","Sushi"]
-  end
-
 end

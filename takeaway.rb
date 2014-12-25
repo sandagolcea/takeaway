@@ -12,10 +12,9 @@ menus << @menu
 filename = 'main_menu.csv'
 @menu.create_menu(filename)
 
-@restaurant = Restaurant.new("Resto",menus)
+@restaurant = Restaurant.new("Resto")
 @customer = Customer.new("Customer", menus)
 
-@restaurant.menus.each {|menu| menu.show_menu}
 
 # @restaurant.take_order(customer)
 # @customer.show_order
