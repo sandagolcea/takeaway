@@ -1,7 +1,10 @@
 require 'restaurant'
 
 describe Restaurant do
-  let(:restaurant){Restaurant.new "Resto"}
+  let(:menu1) {double :menu}
+  let(:menu2) {double :menu}
+  menus = [:menu1, :menu2]
+  let(:restaurant){Restaurant.new("Resto", menus)}
 
   it 'should have a name' do
     expect(restaurant.name)

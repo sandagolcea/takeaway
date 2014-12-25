@@ -1,3 +1,4 @@
+require 'csv'
 require 'menu'
 
 describe Menu do
@@ -21,31 +22,54 @@ describe Menu do
   it 'should be able to remove dishes by name' do
     menu.add(dish)
     menu.add(dish_two)
-    # expect(menu.dishes.size).to eq 2
   
     menu.remove_by_name("Lasagna")
+
     expect(menu.dishes.size).to eq 1
   end
 
   it 'should be able to remove dishes by passing a dish object' do
     menu.add(dish)
     menu.add(dish_two)
-    # expect(menu.dishes.size).to eq 2
   
     menu.remove(dish_two)
+
     expect(menu.dishes.size).to eq 1
   end
 
   it 'should know if it has a dish' do
     menu.add(dish)
     menu.add(dish_two)
-    expect(menu.find?("Sushi")).to eq true
+    expect(menu.exists?("Sushi")).to eq true
   end
 
   it 'should know if it does not have a dish' do
     menu.add(dish)
     menu.add(dish_two)
-    expect(menu.find?("Coq au vin")).to eq false
+    expect(menu.exists?("Coq au vin")).to eq false
+  end
+
+  it 'should select a dish by receiving its name' do
+    menu.add(dish)
+    menu.add(dish_two)
+    expect(menu.get_by_name("Sushi")).to eq dish_two
+  end
+
+  it 'should return nil if you are trying to retrieve a non existent dish' do
+    menu.add(dish_two)
+    expect(menu.get_by_name("Croissant")).to eq nil
+  end
+
+  it 'should open a CSV file and read the contents' do
+    allow(CSV).to receive(:foreach).and_yield(["Ciabatta","10"])
+    menu.create_menu("filename")
+    expect(menu.exists?("Ciabatta")).to eq true
+  end
+
+  it 'should print the menu' do
+    menu.add(dish)
+    menu.add(dish_two)
+    expect(menu.show_menu).to eq ["Lasagna","Sushi"]
   end
 
 end

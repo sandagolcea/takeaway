@@ -3,42 +3,19 @@ require './lib/menu'
 require './lib/dish'
 require './lib/customer'
 require './lib/order'
+require './lib/restaurant'
 
-def create_menu
-  @menu = Menu.new "Main Menu"
+menus = []
 
-  CSV.foreach('main_menu.csv') do |line|
-    dish = Dish.new(line[0], line[1].to_i)
-    @menu.add(dish)
-  end
-  @menu.dishes
-end
+@menu = Menu.new "Main Menu"
+menus << @menu
+filename = 'main_menu.csv'
+@menu.create_menu(filename)
 
-def show_menu
-  @menu.dishes.each {|dish| puts dish.name}
-end
+@restaurant = Restaurant.new("Resto",menus)
+@customer = Customer.new("Customer", menus)
 
-def take_order
-    @order = Order.new
-    add_dish = true
-    while(add_dish) do
-      
-      puts "What dish would you like?"
-      dish_name = gets.chomp
-      
-      @order.add(dish_name, @menu)
+@restaurant.menus.each {|menu| menu.show_menu}
 
-      print "Add another dish? (y/n) : "
-      (gets.chomp == "y" ) ? add_dish = true : add_dish = false
-    end
-end
-
-def show_order
-  @order.show
-end
-
-create_menu
-show_menu
-
-take_order
-show_order
+# @restaurant.take_order(customer)
+# @customer.show_order
