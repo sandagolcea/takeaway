@@ -1,23 +1,15 @@
 require 'customer'
 
 describe Customer do
-  let(:menu1){double :menu}
-  menus = [:menu1]
   
-  let(:customer){Customer.new("Sanda", menus)}
+  let(:customer){Customer.new("Sanda", "07474992321")}
 
   it 'should have a name' do
     expect(customer.name).to eq "Sanda"
   end
 
-  # xit 'should have an email address' do
-  # end
-
-  it 'should be able to place an order' do
-    #TODO: make order
-  end
-
-  it 'should be able to pay for his order' do
+  it 'should have a phone address' do
+    expect(customer.phone).to eq "07474992321"
   end
 
 end

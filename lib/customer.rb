@@ -1,20 +1,12 @@
 class Customer
   
-  attr_reader :name, :order
+  attr_reader :name, :phone
 
-  def initialize(name, menus)
+  def initialize(name, phone)
     @name = name
-    @menus = menus
+    @phone = phone
   end
 
-
-  def create_order(dish_names)
- 
-    @order = Order.new
-
-    dish_names.each do |dish|
-      ( @order.add_item(dish) )  if dish = get_by_name(dish_name) ) != nil 
-    end
     # add_dish = true
     # while(add_dish) do
       
@@ -26,7 +18,6 @@ class Customer
     #   print "Add another dish? (y/n) : "
     #   (gets.chomp == "y" ) ? add_dish = true : add_dish = false
     # end
-  end
 
 end
 

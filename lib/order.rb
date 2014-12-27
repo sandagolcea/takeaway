@@ -1,8 +1,9 @@
 class Order
 
-  def initialize
+  def initialize(customer, menus)
    @payed = false
    @customer_order = {}
+   @menus = menus
   end
 
   def payed?
@@ -27,6 +28,26 @@ class Order
 
   def empty?
     @customer_order.size == 0
+  end
+
+
+  def populate_order(dish_names)
+    dish_names.each do |dish_name|
+      dish = get_by_name(dish_name)
+      if dish != nil
+        add_item(dish)
+      end
+    end
+  end
+
+
+  private
+
+  def get_by_name(dish_name)
+    @menus.each do |menu|
+      curr_dish = menu.get_by_name(dish_name)
+      return curr_dish if curr_dish != nil
+    end
   end
 
 end
