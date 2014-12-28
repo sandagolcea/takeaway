@@ -1,14 +1,13 @@
 require 'order'
 
 describe Order do
-  let(:customer) { double :customer }
   let(:dish) { double :dish, price: 10 }
   let(:dish_two) { double :dish, price: 20 }
 
   let(:menu1){ double :menu }
 
   let(:order) do 
-    Order.new(:customer, [menu1])
+    Order.new([menu1])
   end
 
   it 'should not have any dishes ordered by default' do

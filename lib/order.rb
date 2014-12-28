@@ -1,6 +1,6 @@
 class Order
 
-  def initialize(customer, menus)
+  def initialize(menus)
    @payed = false
    @customer_order = {}
    @menus = menus

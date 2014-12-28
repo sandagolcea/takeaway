@@ -36,6 +36,12 @@ class Menu
 
   end
 
+  def to_string
+    my_string = "#{@name}\n"
+    @dishes.each {|dish| my_string << "#{dish.name} #{dish.price}\n"}
+    my_string
+  end
+
 end
 
 
