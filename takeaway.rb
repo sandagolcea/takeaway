@@ -32,6 +32,7 @@ end
 
 def take_order(restaurant, order, customer)
   restaurant.take_order(order, enter_payment(order, customer))
+  restaurant.send?
 end
 
 menus = []

@@ -2,14 +2,13 @@ Takeaway
 ========
 
 ```
- _______
-|__   __|   _       
-   | | __ _| | _____   __ _ _    __ __ _ _   _
-   | |/ _` | |/ / _ \ / _` | \/\/  / _` \ \_/ /
-   | | (_| |   <  __/| (_| |      | (_| |\   /
-   |_|\__,_|_|\_\___| \__,_|\_/\_/ \__,_| / /
-                                       _ / /
-                                      \ _ /
+ _____     _           _                      
+|_   _|_ _| | _____   / \__      ____ _ _   _ 
+  | |/ _` | |/ / _ \ / _ \ \ /\ / / _` | | | |
+  | | (_| |   <  __// ___ \ V  V / (_| | |_| |
+  |_|\__,_|_|\_\___/_/   \_\_/\_/ \__,_|\__, |
+                                        |___/ 
+
 ```
 
 Takeaway restaurant (Makers Academy week2)
@@ -54,24 +53,33 @@ Count dishes         |   -
     Responsibility   |  Collaborators
 ---------------------|-------------------
 has_name             |  -
-has_email            |  - 
-place order          | Order, Dish
-pay for order        | Order, Dish
-(cancel order)       | (Order, Dish)
+has_phone            |  - 
 
 ##Order
     Responsibility   |  Collaborators
 ---------------------|-------------------
-accept_order         |  Customer, Dish, Menu
+initialize_order     |  Menu
+add_item             |  -
+populate_order       |  Customer, Dish, Menu
 is_payed?            |  Customer
+can be payed         |  Restaurant
+is_empty?            |  -
+has_total            |  -
 
 ##Restaurant
     Responsibility   |  Collaborators
 ---------------------|-------------------
+take order           |  - 
 has_name             |  -
+
+##Main
+    Responsibility   |  Collaborators
+---------------------|-------------------
+get order dishes     | -
+take_order           | Restaurant, Order, Customer
+enter_payment        | Order, Customer
 has_menus            |  -
 has_list_of_orders   |  -
-confirm order        |  - 
 
 
 

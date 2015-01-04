@@ -22,14 +22,9 @@ class Order
     @customer_order.map {|key,value| key.price * value }.inject(0) { |memo, val| memo + val }
   end
 
-  # def show_order
-  #   @customer_order.each {|dish| puts dish.name}
-  # end
-
   def empty?
     @customer_order.size == 0
   end
-
 
   def populate_order(dish_names)
     dish_names.each do |dish_name|
