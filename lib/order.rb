@@ -43,6 +43,7 @@ class Order
       curr_dish = menu.get_by_name(dish_name)
       return curr_dish if curr_dish != nil
     end
+    nil
   end
 
 end

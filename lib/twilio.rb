@@ -2,17 +2,23 @@ require 'twilio-ruby'
 
 module Twilio
 
-  def send_message(receiver)
-    account_sid = ENV['ACCOUNT_SID']
-    auth_token = ENV['AUTH_TOKEN']
+  def client(env)
+    @client ||= create_twilio_client(env)
+  end
 
-    client = Twilio::REST::Client.new account_sid, auth_token
-     
-    from = ENV['FROM'] 
+  def create_twilio_client(env)
+    account_sid = env['ACCOUNT_SID']
+    auth_token = env['AUTH_TOKEN']
+    Twilio::REST::Client.new account_sid, auth_token
+  end
+
+  def send_message(receiver, env, client_messages=nil)
+    client_messages = client(env).account.messages unless client_messages
+    from = env['FROM'] 
     # for predef numbers add: receiver = ENV['RECEIVER']
     # or change from the main takeaway.rb (recommended)
 
-    client.account.messages.create(
+    client_messages.create(
       :from => from, 
       :to => receiver,
       :body => "Thank you! Your order was placed and will be delivered before #{(Time.now + 3600).strftime '%R'}"
