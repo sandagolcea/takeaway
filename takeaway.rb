@@ -32,7 +32,7 @@ end
 
 def take_order(restaurant, order, customer)
   restaurant.take_order(order, enter_payment(order, customer))
-  restaurant.send?
+  restaurant.send_message(customer.phone)
 end
 
 menus = []
@@ -47,6 +47,10 @@ restaurant = Restaurant.new("Resto")
 
 puts "Customer Name: " ; customer_name = STDIN.gets.chomp
 puts "Customer Phone: " ; phone = STDIN.gets.chomp
+
+# In case you already have a predefined phone number:
+# phone = ENV['RECEIVER']
+
 customer = Customer.new(customer_name, phone)
 order = Order.new(menus)
 

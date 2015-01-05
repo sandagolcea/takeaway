@@ -14,7 +14,6 @@ class Restaurant
     raise "You forgot to pay!" if order.total != total
     order.pay! 
     # TODO : send Twilio sms if successful
-    # self.sent?
   end
 
 end
