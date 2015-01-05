@@ -29,6 +29,24 @@ Implement the following functionality:
 
 The text sending functionality is implemented using Twilio. 
 
+##To run:
+`git clone git@github.com:sandagolcea/takeaway.git`  
+`bundle install`  
+
+Create your own ENV vars as provided by twilio when you make an account:
+
+* ACCOUNT_SID
+* AUTH_TOKEN
+* FROM - this is your twilio number (non-physical)
+* RECEIVER - your own phone number, after having verified it with twilio
+
+The program will throw errors if you do not enter these data.  
+By default it is set to ask you for a phone number to send the message to,  so don't worry, you can alway provide an invalid number instead.  
+
+All set!  
+`cd takeaway` 
+Run `ruby main.rb`  
+Enjoy!
 
 ##CRC
 
@@ -76,9 +94,10 @@ enter_payment        | Order, Customer
 has_menus            |  -
 has_list_of_orders   |  -
 
-
-
 <!-- 
+TODO:
+Add tests for takeaway.rb
+
 Another option was to have a list of hashes for the dish:
   # def create_dish(name, price)
   #   dish = {}
