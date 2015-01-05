@@ -21,7 +21,4 @@ describe Restaurant do
     restaurant.take_order(order,100)
   end
 
-  xit 'should send a twilio message' do
-  end
-
 end
